@@ -18,6 +18,32 @@ class ClientTest(unittest.TestCase):
 
 
   """ ------------ Add more unit tests ------------ """
+def test_getRatio():
+    # Test case where price_b is zero
+    assert getRatio(5, 0) is None  # Expecting None as there's no return value when price_b is zero
+
+    # Test case where price_a is zero
+    assert getRatio(0, 10) == 0.0  # Expecting ratio to be 0.0 when price_a is zero
+
+    # Test case where both price_a and price_b are positive
+    assert getRatio(10, 5) == 2.0  # Expecting ratio to be 2.0 when price_a is twice price_b
+
+    # Test case where both price_a and price_b are negative
+    assert getRatio(-10, -5) == 2.0  # Expecting ratio to be 2.0 when both prices are negative
+
+    # Test case where price_a is negative and price_b is positive
+    assert getRatio(-10, 5) == -2.0  # Expecting ratio to be -2.0 when price_a is negative and price_b is positive
+
+    # Test case where price_a is positive and price_b is negative
+    assert getRatio(10, -5) == -2.0  # Expecting ratio to be -2.0 when price_a is positive and price_b is negative
+
+    # Test case where price_a and price_b are equal
+    assert getRatio(5, 5) == 1.0  # Expecting ratio to be 1.0 when price_a equals price_b
+
+    print("All tests passed!")
+
+# Run the unit tests
+test_getRatio()
 
 
 
